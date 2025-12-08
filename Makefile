@@ -13,3 +13,7 @@ lint:
 .PHONY: check
 check:
 	bun run biome check --verbose
+
+.PHONY: dev
+dev:
+	bun run astro dev
