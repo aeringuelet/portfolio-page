@@ -2,6 +2,7 @@
 	"name": "helpless-heliosphere",
 	"type": "module",
 	"version": "0.0.1",
+	"homepage": "https://aeringuelet.github.io/portfolio-page/",
 	"scripts": {
 		"dev": "astro dev",
 		"build": "astro check && astro build",
