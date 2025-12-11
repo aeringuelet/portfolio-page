@@ -1,16 +1,29 @@
 ---
-import "../styles/global.css"
+import '../styles/global.css';
 
 interface Props {
-	pageTitle: string
+    pageTitle: string;
 }
 
-const { pageTitle } = Astro.props
+const { pageTitle } = Astro.props;
 ---
 
 <!doctype html>
 <html lang='en'>
     <head>
+        <script is:inline>
+            if (localStorage.getItem('theme') === null) {
+                document.documentElement.setAttribute('data-theme', 'light');
+            } else
+                document.documentElement.setAttribute(
+                    'data-theme',
+                    localStorage.getItem('theme')
+                );
+        </script>
+        <script>
+            import { themeChange } from 'theme-change';
+            themeChange();
+        </script>
         <meta charset='UTF-8' />
         <meta name='viewport' content='width=device-width, initial-scale=1.0' />
         <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
