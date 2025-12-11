@@ -1,0 +1,30 @@
+---
+import { buildPath } from '../utils/navigation.ts';
+import NavLink from './NavLink.astro';
+
+const navLinks = [
+    { name: 'About', href: '#about' },
+    { name: 'Skills', href: '#skills' },
+    { name: 'Experience', href: '#experience' },
+    { name: 'Contact', href: '#contact' },
+    { name: 'Blog', href: buildPath('/blog') }
+];
+---
+
+<div class='navbar sticky top-0 z-50'>
+    <div class='flex w-full justify-center'>
+        <div class='flex w-fit justify-center rounded-3xl bg-base-200 p-2'>
+            {
+                navLinks.map((link) => (
+                    <NavLink text={link.name} href={link.href} />
+                ))
+            }
+        </div>
+        <div class='content-center'>
+            <select data-choose-theme class='select select-sm'>
+                <option value='dim'>Dark</option>
+                <option value='silk'>Light</option>
+            </select>
+        </div>
+    </div>
+</div>

@@ -1,16 +1,10 @@
 ---
+import Hero from '@components/Hero.astro';
+import Navbar from '@components/Navbar.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout pageTitle='Home'>
-	<p>
-		Welcome to my portfolio page! Here, you'll find a showcase of my
-		projects, skills, and experiences as a developer. Feel free to explore
-		and learn more about my work.
-	</p>
-	<button class='btn btn-primary'>Button</button>
-	<select data-choose-theme class='select select-sm'>
-		<option value='dim'>Dark</option>
-		<option value='silk'>Light</option>
-	</select>
+	<Navbar />
+	<Hero />
 </BaseLayout>
