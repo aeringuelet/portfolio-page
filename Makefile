@@ -21,4 +21,4 @@ dev:
 
 .PHONY: build
 build:
-	bun run astro check && astro build
+	bun run astro check && bun run astro build
