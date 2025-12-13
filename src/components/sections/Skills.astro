@@ -1,0 +1,37 @@
+---
+import Badge from '@components/Badge.astro';
+import Card from '@components/Card.astro';
+
+const skills: { title: string; elements: string[] }[] = [
+    {
+        title: 'Languages',
+        elements: ['TypeScript', 'Python', 'Java']
+    },
+    {
+        title: 'Frameworks & Libraries',
+        elements: ['React', 'Astro', 'Express', 'Node.js']
+    },
+    {
+        title: 'Databases',
+        elements: ['PostgreSQL', 'MongoDB', 'MySQL']
+    },
+    {
+        title: 'Tools & Platforms',
+        elements: ['Docker', 'AWS', 'Git', 'Linux', 'CI/CD Pipelines']
+    }
+];
+---
+
+<div class='grid grid-cols-3 gap-4'>
+    {
+        skills.map((skill) => (
+            <Card title={skill.title}>
+                <div class='flex flex-wrap gap-2'>
+                    {skill.elements.map((element) => (
+                        <Badge class='badge-soft badge-accent'>{element}</Badge>
+                    ))}
+                </div>
+            </Card>
+        ))
+    }
+</div>

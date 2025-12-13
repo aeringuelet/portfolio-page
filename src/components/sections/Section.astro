@@ -9,7 +9,7 @@ const { sectionName, class: className, title, ...rest } = Astro.props;
 ---
 
 <section
-    class={`min-h-screen max-h-screen pt-16 ${className ? className : ''}`}
+    class={`min-h-screen pt-16 ${className ? className : ''}`}
     id={sectionName}
     {...rest}>
     {
