@@ -1,0 +1,26 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+    title?: string;
+    icon?: string;
+    class?: string;
+}
+
+const { title, icon, class: className } = Astro.props;
+---
+
+<div class={`card bg-neutral text-neutral-content ${className}`}>
+    <div class='card-body'>
+        {
+            icon && (
+                // TODO: move to component
+                <div class='bg-primary w-fit rounded-md p-2'>
+                    <Icon name={icon} class='text-3xl text-primary-content' />
+                </div>
+            )
+        }
+        <h2 class='card-title'>{title}</h2>
+        <slot />
+    </div>
+</div>

@@ -1,6 +1,7 @@
 ---
-import { buildPath } from '../utils/navigation.ts';
+import { buildPath } from '../../utils/navigation.ts';
 import NavLink from './NavLink.astro';
+import ThemeSelector from './ThemeSelector.astro';
 
 const navLinks = [
     { name: 'About', href: '#about' },
@@ -20,11 +21,7 @@ const navLinks = [
                 ))
             }
         </div>
-        <div class='content-center'>
-            <select data-choose-theme class='select select-sm'>
-                <option value='dim'>Dark</option>
-                <option value='silk'>Light</option>
-            </select>
-        </div>
+        <div class='divider divider-horizontal'></div>
+        <ThemeSelector />
     </div>
 </div>

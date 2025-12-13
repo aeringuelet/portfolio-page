@@ -2,3 +2,7 @@
 @plugin "daisyui" {
   themes: silk --default, dim --prefersdark;
 };
+
+html {
+  scroll-behavior: smooth;
+}
