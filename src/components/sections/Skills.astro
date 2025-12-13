@@ -1,6 +1,7 @@
 ---
 import Badge from '@components/Badge.astro';
 import Card from '@components/Card.astro';
+import Section from './Section.astro';
 
 const skills: { title: string; elements: string[] }[] = [
     {
@@ -22,16 +23,20 @@ const skills: { title: string; elements: string[] }[] = [
 ];
 ---
 
-<div class='grid grid-cols-3 gap-4'>
-    {
-        skills.map((skill) => (
-            <Card title={skill.title}>
-                <div class='flex flex-wrap gap-2'>
-                    {skill.elements.map((element) => (
-                        <Badge class='badge-soft badge-accent'>{element}</Badge>
-                    ))}
-                </div>
-            </Card>
-        ))
-    }
-</div>
+<Section sectionName='skills' title='Technical Skills'>
+    <div class='grid grid-cols-3 gap-4'>
+        {
+            skills.map((skill) => (
+                <Card title={skill.title}>
+                    <div class='flex flex-wrap gap-2'>
+                        {skill.elements.map((element) => (
+                            <Badge class='badge-soft badge-accent'>
+                                {element}
+                            </Badge>
+                        ))}
+                    </div>
+                </Card>
+            ))
+        }
+    </div>
+</Section>

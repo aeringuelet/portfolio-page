@@ -1,5 +1,6 @@
 ---
 import Icon from '@components/Icon.astro';
+import Section from './Section.astro';
 
 const experiences: {
     title: string;
@@ -42,33 +43,34 @@ const experiences: {
     }
 ];
 ---
-
-<div class='flex flex-col items-center gap-8'>
-    {
-        experiences.map((experience) => (
-            <div class='card bg-neutral text-neutral-content'>
-                <div class='card-body'>
-                    <div class='flex flex-row gap-4 items-start'>
-                        <div class='badge-soft badge-accent w-fit rounded-md p-2'>
-                            <Icon name='calendar-date-range' class='text-2xl' />
+<Section sectionName='experience' title='Experience'>
+    <div class='flex flex-col items-center gap-8'>
+        {
+            experiences.map((experience) => (
+                <div class='card bg-neutral text-neutral-content'>
+                    <div class='card-body'>
+                        <div class='flex flex-row gap-4 items-start'>
+                            <div class='badge-soft badge-accent w-fit rounded-md p-2'>
+                                <Icon name='calendar-date-range' class='text-2xl' />
+                            </div>
+                            <div class='flex flex-col gap-1'>
+                                <time class='text-xs font-semibold text-accent'>
+                                    {experience.dates.start.toLocaleDateString()} -{' '}
+                                    {experience.dates.end === 'Present'
+                                        ? 'Present'
+                                        : experience.dates.end.toLocaleDateString()}
+                                </time>
+                                <h2 class='card-title'>{experience.title}</h2>
+                                <p class='italic'>{experience.company}</p>
+                            </div>
                         </div>
-                        <div class='flex flex-col gap-1'>
-                            <time class='text-xs font-semibold text-accent'>
-                                {experience.dates.start.toLocaleDateString()} -{' '}
-                                {experience.dates.end === 'Present'
-                                    ? 'Present'
-                                    : experience.dates.end.toLocaleDateString()}
-                            </time>
-                            <h2 class='card-title'>{experience.title}</h2>
-                            <p class='italic'>{experience.company}</p>
+                        <div>
+                            <p class=''>{experience.description}</p>
                         </div>
-                    </div>
-                    <div>
-                        <p class=''>{experience.description}</p>
                     </div>
                 </div>
-            </div>
-            <div aria-label="status" class="status status-xl status-accent"></div>
-        ))
-    }
-</div>
+                <div aria-label="status" class="status status-xl status-accent"></div>
+            ))
+        }
+    </div>
+</Section>

@@ -3,23 +3,16 @@ import Navbar from '@components/navigation/Navbar.astro';
 import About from '@components/sections/About.astro';
 import Experience from '@components/sections/Experience.astro';
 import Hero from '@components/sections/Hero.astro';
-import Section from '@components/sections/Section.astro';
 import Skills from '@components/sections/Skills.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout pageTitle='Home'>
 	<Navbar />
-	<Section sectionName='hero'>
-		<Hero />
-	</Section>
-	<Section sectionName='about' title='About Me'>
+	<Hero />
+	<div class='flex flex-col gap-64'>
 		<About />
-	</Section>
-	<Section sectionName='skills' title='Technical Skills'>
 		<Skills />
-	</Section>
-	<Section sectionName='experience' title='Experience'>
 		<Experience />
-	</Section>
+	</div>
 </BaseLayout>
