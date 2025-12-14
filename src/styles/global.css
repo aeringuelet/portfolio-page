@@ -1,8 +1,27 @@
+/* biome-ignore-all lint: it doesn't support daisyui */
+
 @import "tailwindcss";
+
 @plugin "daisyui" {
-  themes: silk --default, dim --prefersdark;
-};
+	themes:
+		silk --default,
+		dim --prefersdark;
+}
+
+@plugin "daisyui/theme" {
+	name: "silk";
+	default: true;
+	prefersdark: false;
+	color-scheme: light;
+}
+
+@plugin "daisyui/theme" {
+	name: "dim";
+	default: false;
+	prefersdark: true;
+	color-scheme: dark;
+}
 
 html {
-  scroll-behavior: smooth;
+	scroll-behavior: smooth;
 }
