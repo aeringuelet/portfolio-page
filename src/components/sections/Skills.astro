@@ -23,11 +23,11 @@ const skills: { title: string; elements: string[] }[] = [
 ];
 ---
 
-<Section sectionName='skills' title='Technical Skills'>
+<Section sectionName='skills' title='Technical Skills' class='bg-base-100'>
     <div class='grid grid-cols-3 gap-4'>
         {
             skills.map((skill) => (
-                <Card title={skill.title}>
+                <Card title={skill.title} class='bg-base-300'>
                     <div class='flex flex-wrap gap-2'>
                         {skill.elements.map((element) => (
                             <Badge class='badge-soft badge-accent'>
