@@ -1,0 +1,31 @@
+---
+export type LinkType = 'email' | 'phone' | 'link';
+
+interface Props {
+    value: string;
+    type?: LinkType;
+    label?: string;
+    class?: string;
+}
+const { label, value, type, class: className } = Astro.props;
+---
+
+{
+    type === 'email' ? (
+        <a href={`mailto:${value}`} class={`link ${className}`}>
+            {label || value}
+        </a>
+    ) : type === 'phone' ? (
+        <a href={`tel:${value}`} class={`link ${className}`}>
+            {label || value}
+        </a>
+    ) : (
+        <a
+            href={value}
+            class={`link ${className}`}
+            target='_blank'
+            rel='noopener noreferrer'>
+            {label || value}
+        </a>
+    )
+}

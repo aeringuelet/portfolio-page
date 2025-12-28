@@ -23,7 +23,11 @@ const skills: { title: string; elements: string[] }[] = [
 ];
 ---
 
-<Section sectionName='skills' title='Technical Skills' class='bg-base-100'>
+<Section
+    sectionName='skills'
+    title='Technical Skills'
+    subtitle='Technologies and tools I work with'
+    class='bg-base-100'>
     <div class='grid grid-cols-3 gap-4'>
         {
             skills.map((skill) => (

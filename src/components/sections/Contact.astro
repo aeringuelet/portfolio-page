@@ -1,0 +1,87 @@
+---
+import Button from '@components/Button.astro';
+import Card from '@components/Card.astro';
+import Icon from '@components/Icon.astro';
+import type { LinkType } from '@components/Link.astro';
+import Link from '@components/Link.astro';
+import Section from './Section.astro';
+
+const contactMethods: {
+    label: string;
+    value: string;
+    icon: string;
+    type: LinkType | 'plain';
+    linkLabel?: string;
+}[] = [
+    {
+        label: 'Email',
+        value: 'aeringuelet@gmail.com',
+        icon: 'envelope',
+        type: 'email'
+    },
+    {
+        label: 'Phone',
+        value: '+34 662 348 496',
+        icon: 'mobile-phone',
+        type: 'phone'
+    },
+    {
+        label: 'LinkedIn',
+        value: 'https://www.linkedin.com/in/ae-ringuelet/',
+        linkLabel: 'AE Ringuelet',
+        icon: 'linkedin-logo',
+        type: 'link'
+    },
+    {
+        label: 'Location',
+        value: 'Based in Barcelona, available worldwide',
+        icon: 'globe-alt',
+        type: 'plain'
+    }
+];
+---
+
+<Section
+    sectionName='contact'
+    title='Get in Touch'
+    subtitle="If you'd like to reach out, feel free to contact me through the following methods"
+    class='bg-base-100'>
+    <div class='grid grid-cols-4 gap-4 mb-4'>
+        {
+            contactMethods.map((method) => (
+                <Card
+                    title={method.label}
+                    class='bg-base-300'
+                    icon={method.icon}
+                    content='center'>
+                    {method.type === 'plain' ? (
+                        <p class='text-center'>{method.value}</p>
+                    ) : (
+                        <Link
+                            value={method.value}
+                            type={method.type}
+                            label={method.linkLabel}
+                            class='link-hover'
+                        />
+                    )}
+                </Card>
+            ))
+        }
+    </div>
+    <Card
+        title='Do you want to know more or get in touch with me?'
+        class='bg-base-300'
+        content='center'>
+        <div class='flex gap-4'>
+            <Button
+                class='btn-soft btn-info'
+                type='link'
+                href='mailto:aeringuelet@gmail.com'>
+                <Icon name='paper-airplane' />Send Message</Button
+            >
+            <Button class='btn-soft btn-success'
+                ><Icon name='arrow-down-tray' />Download CV</Button
+            >
+        </div>
+    </Card>
+</Section>

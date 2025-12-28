@@ -2,16 +2,17 @@
 import Icon from './Icon.astro';
 
 interface Props {
+    class?: string;
     title?: string;
     icon?: string;
-    class?: string;
+    content?: 'center' | 'left';
 }
 
-const { title, icon, class: className } = Astro.props;
+const { title, icon, content, class: className } = Astro.props;
 ---
 
 <div class={`card shadow-lg ${className}`}>
-    <div class='card-body'>
+    <div class={`card-body ${content === 'center' ? 'flex items-center' : ''}`}>
         {
             icon && (
                 // TODO: move to component

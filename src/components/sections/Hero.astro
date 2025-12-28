@@ -1,3 +1,7 @@
+---
+import Button from '@components/Button.astro';
+---
+
 <div class='flex flex-col w-full gap-4 min-h-screen pt-28 bg-base-300'>
     <div class='avatar avatar-placeholder justify-center'>
         <div class='bg-accent/80 text-accent-content w-32 rounded-full'>
@@ -15,10 +19,12 @@
                 7+ years crafting scalable solutions with React, ChakraUI,
                 TypeScript, and Python
             </p>
-            <button class='btn btn-soft btn-primary'>View My Work</button>
-            <button class='btn btn-soft btn-secondary'>
-                <a href='#contact'>Get In Touch</a>
-            </button>
+            <Button class='btn-soft btn-primary' type='link' href='#experience'
+                >View My Work</Button
+            >
+            <Button class='btn-soft btn-secondary' type='link' href='#contact'
+                >Get In Touch</Button
+            >
         </div>
     </div>
 </div>
