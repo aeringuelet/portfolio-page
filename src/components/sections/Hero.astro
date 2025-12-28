@@ -1,8 +1,10 @@
 ---
 import Button from '@components/Button.astro';
+import DownloadCVButton from '@components/DownloadCVButton.astro';
+import Icon from '@components/Icon.astro';
 ---
 
-<div class='flex flex-col w-full gap-4 min-h-screen pt-28 bg-base-300'>
+<div class='flex flex-col w-full gap-8 h-screen bg-base-300 mt-24'>
     <div class='avatar avatar-placeholder justify-center'>
         <div class='bg-accent/80 text-accent-content w-32 rounded-full'>
             <span class='text-3xl'>AER</span>
@@ -10,21 +12,24 @@ import Button from '@components/Button.astro';
     </div>
 
     <div class='flex text-center justify-center'>
-        <div class='max-w-md'>
-            <div class='badge badge-primary badge-soft badge-lg mb-4'>
+        <div class='flex flex-col items-center max-w-md gap-6'>
+            <div class='badge badge-primary badge-soft badge-lg'>
                 Fullstack Software Developer
             </div>
             <h1 class='text-5xl font-bold'>Building Digital Experiences</h1>
-            <p class='py-6'>
+            <p>
                 7+ years crafting scalable solutions with React, ChakraUI,
                 TypeScript, and Python
             </p>
-            <Button class='btn-soft btn-primary' type='link' href='#experience'
-                >View My Work</Button
-            >
-            <Button class='btn-soft btn-secondary' type='link' href='#contact'
-                >Get In Touch</Button
-            >
+            <div class='grid grid-cols-2 gap-4'>
+                <Button
+                    class='btn-soft btn-secondary'
+                    href='#contact'
+                    type='link'
+                    ><Icon name='chat-bubble-oval-text' />Get In Touch
+                </Button>
+                <DownloadCVButton />
+            </div>
         </div>
     </div>
 </div>

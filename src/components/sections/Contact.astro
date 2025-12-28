@@ -1,6 +1,7 @@
 ---
 import Button from '@components/Button.astro';
 import Card from '@components/Card.astro';
+import DownloadCVButton from '@components/DownloadCVButton.astro';
 import Icon from '@components/Icon.astro';
 import type { LinkType } from '@components/Link.astro';
 import Link from '@components/Link.astro';
@@ -18,12 +19,6 @@ const contactMethods: {
         value: 'aeringuelet@gmail.com',
         icon: 'envelope',
         type: 'email'
-    },
-    {
-        label: 'Phone',
-        value: '+34 662 348 496',
-        icon: 'mobile-phone',
-        type: 'phone'
     },
     {
         label: 'LinkedIn',
@@ -46,7 +41,7 @@ const contactMethods: {
     title='Get in Touch'
     subtitle="If you'd like to reach out, feel free to contact me through the following methods"
     class='bg-base-100'>
-    <div class='grid grid-cols-4 gap-4 mb-4'>
+    <div class='grid grid-cols-3 gap-4 mb-4'>
         {
             contactMethods.map((method) => (
                 <Card
@@ -79,9 +74,7 @@ const contactMethods: {
                 href='mailto:aeringuelet@gmail.com'>
                 <Icon name='paper-airplane' />Send Message</Button
             >
-            <Button class='btn-soft btn-success'
-                ><Icon name='arrow-down-tray' />Download CV</Button
-            >
+            <DownloadCVButton />
         </div>
     </Card>
 </Section>

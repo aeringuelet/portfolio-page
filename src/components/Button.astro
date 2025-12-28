@@ -3,14 +3,18 @@ interface Props {
     class?: string;
     type?: 'link';
     href?: string;
+    isExternal?: boolean;
 }
 
-const { type, href, class: className } = Astro.props;
+const { type, href, class: className, isExternal = false } = Astro.props;
 ---
 
 {
     type === 'link' ? (
-        <a href={href}>
+        <a
+            href={href}
+            target={isExternal ? '_blank' : undefined}
+            rel={isExternal ? 'noopener noreferrer' : undefined}>
             <button class={`btn ${className}`}>
                 <slot />
             </button>

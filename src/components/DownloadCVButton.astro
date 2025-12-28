@@ -1,0 +1,12 @@
+---
+import { buildPath } from '../utils/navigation';
+import Button from './Button.astro';
+import Icon from './Icon.astro';
+---
+
+<Button
+    class='btn-soft btn-success'
+    type='link'
+    href={buildPath('/Augusto_E_Ringuelet_CV.pdf')}
+    ><Icon name='arrow-down-tray' />Download CV</Button
+>
