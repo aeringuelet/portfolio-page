@@ -1,0 +1,28 @@
+---
+import { getCollection } from 'astro:content';
+import Navbar from '../../components/navigation/Navbar.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { buildPath } from '../../utils/navigation.ts';
+
+const posts = (
+    await getCollection('blog', ({ data }) =>
+        import.meta.env.PROD ? data.status === 'published' : true
+    )
+).sort((a, b) => b.data.creationDate.valueOf() - a.data.creationDate.valueOf());
+---
+
+<BaseLayout pageTitle='Blog'>
+    <Navbar />
+    <h1>My posts</h1>
+    <ul>
+        {
+            posts.map((post) => (
+                <li>
+                    <a href={buildPath(`/blog/${post.id}`)}>
+                        {post.data.title}
+                    </a>
+                </li>
+            ))
+        }
+    </ul>
+</BaseLayout>
