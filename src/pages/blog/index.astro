@@ -16,7 +16,9 @@ const posts = (
     <Navbar />
     <div class='flex flex-col mt-12 max-w-[75%] text-center'>
         <Title>My Blog</Title>
-        <h4>A collection of my thoughts, tutorials, and updates.</h4>
+        <h4 class='italic'>
+            A collection of my thoughts, tutorials, and updates.
+        </h4>
         <div class='mt-8 grid grid-cols-3 w-full gap-4'>
             {posts.map((post) => <BlogListEntry post={post} />)}
         </div>
