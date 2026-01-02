@@ -1,8 +1,9 @@
 ---
+import BlogListEntry from '@components/BlogListEntry.astro';
+import Title from '@components/Title.astro';
 import { getCollection } from 'astro:content';
 import Navbar from '../../components/navigation/Navbar.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { buildPath } from '../../utils/navigation.ts';
 
 const posts = (
     await getCollection('blog', ({ data }) =>
@@ -11,18 +12,13 @@ const posts = (
 ).sort((a, b) => b.data.creationDate.valueOf() - a.data.creationDate.valueOf());
 ---
 
-<BaseLayout pageTitle='Blog'>
+<BaseLayout pageTitle='Blog' class='flex flex-col w-full items-center'>
     <Navbar />
-    <h1>My posts</h1>
-    <ul>
-        {
-            posts.map((post) => (
-                <li>
-                    <a href={buildPath(`/blog/${post.id}`)}>
-                        {post.data.title}
-                    </a>
-                </li>
-            ))
-        }
-    </ul>
+    <div class='flex flex-col mt-12 max-w-[75%] text-center'>
+        <Title>My Blog</Title>
+        <h4>A collection of my thoughts, tutorials, and updates.</h4>
+        <div class='mt-8 grid grid-cols-3 w-full gap-4'>
+            {posts.map((post) => <BlogListEntry post={post} />)}
+        </div>
+    </div>
 </BaseLayout>

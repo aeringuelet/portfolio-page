@@ -1,0 +1,28 @@
+---
+import type { Collection } from '../content.config';
+import { buildPath } from '../utils/navigation.ts';
+
+interface Props {
+    post: Collection<'blog'>;
+}
+const { post } = Astro.props;
+---
+
+<a href={buildPath(`/blog/${post.id}`)}>
+    <div class='card shadow-lg bg-base-100 border-2'>
+        <div class='card-body py-2 px-4 text-left'>
+            <h5>{post.data.creationDate.toLocaleDateString()}</h5>
+            <h2 class='card-title'>{post.data.title}</h2>
+            <p>{post.data.description}</p>
+            {
+                post.data.tags && post.data.tags.length > 0 && (
+                    <div class='card-actions'>
+                        {post.data.tags.map((tag) => (
+                            <div class='badge badge-outline'>{tag}</div>
+                        ))}
+                    </div>
+                )
+            }
+        </div>
+    </div>
+</a>

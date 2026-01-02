@@ -4,10 +4,10 @@ import NavLink from './NavLink.astro';
 import ThemeSelector from './ThemeSelector.astro';
 
 const navLinks = [
-    { name: 'About', href: '#about' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Experience', href: '#experience' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'About', href: buildPath('/#about') },
+    { name: 'Skills', href: buildPath('/#skills') },
+    { name: 'Experience', href: buildPath('/#experience') },
+    { name: 'Contact', href: buildPath('/#contact') },
     { name: 'Blog', href: buildPath('/blog') }
 ];
 ---

@@ -3,9 +3,10 @@ import '../styles/global.css';
 
 interface Props {
     pageTitle: string;
+    class?: string;
 }
 
-const { pageTitle } = Astro.props;
+const { pageTitle, class: className } = Astro.props;
 ---
 
 <!doctype html>
@@ -34,7 +35,7 @@ const { pageTitle } = Astro.props;
         <meta name='generator' content={Astro.generator} />
         <title>{pageTitle}</title>
     </head>
-    <body class='bg-base-300'>
+    <body class={`bg-base-300 ${className}`}>
         <slot />
     </body>
 </html>
