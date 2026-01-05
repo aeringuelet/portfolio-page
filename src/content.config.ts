@@ -1,4 +1,4 @@
-import { type CollectionEntry, defineCollection } from "astro:content"
+import { defineCollection } from "astro:content"
 
 import { glob } from "astro/loaders"
 
@@ -17,7 +17,3 @@ const blog = defineCollection({
 })
 
 export const collections = { blog }
-
-export type Collections = typeof collections
-export type Collection<T extends keyof Collections = keyof Collections> =
-	CollectionEntry<T>

@@ -1,7 +1,6 @@
 ---
-import type { Collection } from '../content.config';
-import { buildPath } from '../utils/navigation.ts';
-import Icon from './Icon.astro';
+import Icon from '@components/Icon.astro';
+import { buildPath, type Collection } from '../../utils';
 
 interface Props {
     post: Collection<'blog'>;
