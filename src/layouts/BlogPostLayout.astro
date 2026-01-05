@@ -1,0 +1,23 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+    title: string;
+    date: string;
+    description?: string;
+    author?: string;
+}
+const { title, date, description, author } = Astro.props;
+---
+
+<BaseLayout pageTitle={title}>
+    <h1>
+        {title}
+    </h1>
+    <h4 class='italic mb-8'>{date}</h4>
+    {author && <h5 class='italic mb-8'>{author}</h5>}
+    {description && <h4 class='mb-12'>{description}</h4>}
+    <article>
+        <slot />
+    </article>
+</BaseLayout>
