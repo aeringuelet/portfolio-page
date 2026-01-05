@@ -11,7 +11,7 @@ const { post } = Astro.props;
 
 <a href={buildPath(`/blog/${post.id}`)}>
     <div
-        class='card shadow-2xl bg-base-100 h-[stretch] border border-transparent hover:border-primary transition-all duration-200'>
+        class='card shadow-2xl bg-base-100 border border-transparent group hover:border-primary transition-all duration-200'>
         <div class='card-body p-4 text-left'>
             <div class='flex items-center gap-1'>
                 <Icon name='calendar-date-range' />
@@ -19,7 +19,9 @@ const { post } = Astro.props;
                     {post.data.creationDate.toLocaleDateString()}
                 </p>
             </div>
-            <h2 class='card-title text-primary'>{post.data.title}</h2>
+            <h2 class='card-title group-hover:text-primary'>
+                {post.data.title}
+            </h2>
             <p class='line-clamp-4'>{post.data.description}</p>
             {
                 post.data.tags && post.data.tags.length > 0 && (
