@@ -1,31 +1,41 @@
 ---
+import Button from '@components/Button.astro';
 import { buildPath } from '@utils/navigation';
-import ThemeSelector from './ThemeSelector.astro';
+
+// import ThemeSelector from './ThemeSelector.astro';
 
 const navLinks = [
     { name: 'About', href: buildPath('/#about') },
     { name: 'Skills', href: buildPath('/#skills') },
     { name: 'Experience', href: buildPath('/#experience') },
-    { name: 'Contact', href: buildPath('/#contact') },
-    { name: 'Blog', href: buildPath('/blog') }
+    { name: 'Contact', href: buildPath('/#contact') }
 ];
 ---
 
 <div class='navbar sticky top-4 z-50 bg-transparent'>
     <div class='flex w-full justify-center'>
-        <div
-            class='flex w-fit justify-center rounded-3xl bg-base-100/95 p-2 gap-1 shadow-lg'>
-            {
-                navLinks.map((link) => (
-                    <a
-                        class='btn btn-ghost btn-sm rounded-3xl hover:text-primary'
-                        href={link.href}>
-                        {link.name}
-                    </a>
-                ))
-            }
+        <div class='flex gap-4 items-center'>
+            <div
+                class='flex w-fit justify-center rounded-xl bg-base-100/95 p-2 gap-1 shadow-lg'>
+                {
+                    navLinks.map((link) => (
+                        <Button
+                            type='link'
+                            class='btn-ghost btn-sm hover:text-primary hover:bg-transparent hover:border-transparent'
+                            href={link.href}>
+                            {link.name}
+                        </Button>
+                    ))
+                }
+            </div>
+            <Button
+                type='link'
+                class='btn-sm btn-soft btn-accent shadow-lg p-5'
+                href={buildPath('/blog')}>
+                Blog
+            </Button>
         </div>
-        <div class='divider divider-horizontal'></div>
-        <ThemeSelector />
+        <!-- <div class='divider divider-horizontal'></div> -->
+        <!-- <ThemeSelector /> -->
     </div>
 </div>

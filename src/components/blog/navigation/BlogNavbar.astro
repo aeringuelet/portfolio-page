@@ -1,23 +1,25 @@
 ---
+import Button from '@components/Button.astro';
 import Icon from '@components/Icon.astro';
 import { buildPath } from '@utils/navigation';
 ---
 
-<div class='navbar sticky top-4 z-50 bg-transparent'>
-    <div class='flex w-full justify-center'>
-        <div
-            class='flex w-fit justify-center rounded-3xl bg-base-100/95 p-2 gap-1 shadow-lg'>
-            <a
-                class='btn btn-ghost btn-sm rounded-3xl hover:text-primary'
+<div class='navbar sticky top-0 z-50 bg-transparent'>
+    <div class='flex w-full'>
+        <div class='flex w-full gap-2 items-center justify-between px-16'>
+            <Button
+                type='link'
+                class='btn-sm btn-accent btn-soft'
                 href={buildPath('/')}>
                 <Icon name='briefcase' class='text-lg' />
                 Back to Portfolio
-            </a>
-            <a
-                class='btn btn-ghost btn-sm rounded-3xl hover:text-primary'
+            </Button>
+            <Button
+                type='link'
+                class='btn-sm btn-primary'
                 href={buildPath('/blog')}>
                 All Posts
-            </a>
+            </Button>
         </div>
     </div>
 </div>
