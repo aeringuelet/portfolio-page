@@ -1,5 +1,5 @@
 .PHONY: bootstrap
-install:
+bootstrap:
 	bun install
 
 .PHONY: tidy

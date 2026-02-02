@@ -1,0 +1,17 @@
+---
+interface Props {
+    src: string;
+    alt: string;
+    title?: string;
+    class?: string;
+}
+
+const { src, alt, title, class: className = '' } = Astro.props;
+---
+
+<img
+    src={src}
+    alt={alt}
+    title={title}
+    class={`rounded-lg shadow-lg my-6 mx-auto ${className}`}
+/>
