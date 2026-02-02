@@ -1,4 +1,5 @@
 ---
+import Badge from '@components/Badge.astro';
 import Icon from '@components/Icon.astro';
 import { buildPath, type Collection } from '../../utils';
 
@@ -26,9 +27,9 @@ const { post } = Astro.props;
                 post.data.tags && post.data.tags.length > 0 && (
                     <div class='card-actions'>
                         {post.data.tags.map((tag) => (
-                            <div class='badge badge-outline badge-soft'>
+                            <Badge class='badge-outline badge-soft'>
                                 {tag}
-                            </div>
+                            </Badge>
                         ))}
                     </div>
                 )

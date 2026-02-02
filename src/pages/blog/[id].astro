@@ -52,6 +52,7 @@ const components = {
     title={post.data.title}
     date={post.data.creationDate.toLocaleDateString()}
     description={post.data.description}
-    author='Augusto Ezequiel Ringuelet'>
+    author='Augusto Ezequiel Ringuelet'
+    tags={post.data.tags}>
     <Content components={components} />
 </BlogPostLayout>

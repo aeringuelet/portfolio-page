@@ -9,9 +9,4 @@ interface Props {
 const { src, alt, title, class: className = '' } = Astro.props;
 ---
 
-<img
-    src={src}
-    alt={alt}
-    title={title}
-    class={`rounded-lg shadow-lg my-6 mx-auto ${className}`}
-/>
+<img src={src} alt={alt} title={title} class={className} />

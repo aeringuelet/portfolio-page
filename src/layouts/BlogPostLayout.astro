@@ -1,4 +1,8 @@
 ---
+import Badge from '@components/Badge.astro';
+import Button from '@components/Button.astro';
+import Icon from '@components/Icon.astro';
+import { formatDate } from '@utils/date';
 import BaseLayout from './BaseLayout.astro';
 
 interface Props {
@@ -6,18 +10,38 @@ interface Props {
     date: string;
     description?: string;
     author?: string;
+    tags?: string[];
 }
-const { title, date, description, author } = Astro.props;
+const { title, date, description, tags } = Astro.props;
+
+const formattedDate = formatDate(new Date(date));
 ---
 
 <BaseLayout pageTitle={title}>
-    <h1>
-        {title}
-    </h1>
-    <h4 class='italic mb-8'>{date}</h4>
-    {author && <h5 class='italic mb-8'>{author}</h5>}
-    {description && <h4 class='mb-12'>{description}</h4>}
-    <article>
-        <slot />
-    </article>
+    <div class='flex justify-center mx-64 flex-col lg:max-w-6xl gap-4 pt-8'>
+        <Button href='/blog' class='btn-ghost' type='link'
+            >← Back to Blog</Button
+        >
+        <div class='flex items-center gap-2'>
+            <Icon name='calendar-date-range' class='text-lg' />
+            <time class='italic text-sm'>{formattedDate}</time>
+        </div>
+        <h1 class='text-5xl font-bold text-white'>
+            {title}
+        </h1>
+        {description && <p class='text-xl'>{description}</p>}
+        {
+            tags && (
+                <div class='flex gap-2'>
+                    {tags.map((tag) => (
+                        <Badge class='badge-soft badge-primary'>{tag}</Badge>
+                    ))}
+                </div>
+            )
+        }
+        <div class='divider my-6'></div>
+        <article>
+            <slot />
+        </article>
+    </div>
 </BaseLayout>
