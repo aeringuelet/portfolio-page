@@ -19,7 +19,7 @@ const { post } = Astro.props;
                     {post.data.creationDate.toLocaleDateString()}
                 </p>
             </div>
-            <h2 class='card-title group-hover:text-primary'>
+            <h2 class='card-title group-hover:text-primary text-white'>
                 {post.data.title}
             </h2>
             <p class='line-clamp-4'>{post.data.description}</p>
@@ -27,7 +27,7 @@ const { post } = Astro.props;
                 post.data.tags && post.data.tags.length > 0 && (
                     <div class='card-actions'>
                         {post.data.tags.map((tag) => (
-                            <Badge class='badge-outline badge-soft'>
+                            <Badge class='badge-outline badge-soft group-hover:badge-primary'>
                                 {tag}
                             </Badge>
                         ))}

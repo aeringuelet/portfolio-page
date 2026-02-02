@@ -1,4 +1,5 @@
 ---
+import Icon from '@components/Icon.astro';
 import { buildPath } from '@utils/navigation';
 ---
 
@@ -9,7 +10,8 @@ import { buildPath } from '@utils/navigation';
             <a
                 class='btn btn-ghost btn-sm rounded-3xl hover:text-primary'
                 href={buildPath('/')}>
-                Go back to Portfolio
+                <Icon name='briefcase' class='text-lg' />
+                Back to Portfolio
             </a>
             <a
                 class='btn btn-ghost btn-sm rounded-3xl hover:text-primary'

@@ -1,4 +1,6 @@
 ---
+import Title from './Title.astro';
+
 interface Props {
     sectionName: string;
     title?: string;
@@ -13,7 +15,7 @@ const { sectionName, class: className, title, subtitle, ...rest } = Astro.props;
     {
         title && (
             <div class='flex flex-col w-full items-center mb-8'>
-                <h1 class='text-5xl'>{title}</h1>
+                <Title>{title}</Title>
                 <div class='divider divider-vertical divider-primary w-18 self-center my-1 before:h-1 after:h-1' />
                 <h5>{subtitle}</h5>
             </div>
