@@ -1,9 +1,10 @@
 ---
 import BlogListEntry from '@components/blog/BlogListEntry.astro';
+import Navbar from '@components/blog/navigation/Navbar.astro';
 import Card from '@components/Card.astro';
+import Footer from '@components/Footer.astro';
 import Title from '@components/Title.astro';
 import { getCollection } from 'astro:content';
-import Navbar from '../../components/navigation/Navbar.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const posts = (
@@ -39,4 +40,5 @@ const posts = (
             )
         }
     </div>
+    <Footer class='bg-base-100' />
 </BaseLayout>

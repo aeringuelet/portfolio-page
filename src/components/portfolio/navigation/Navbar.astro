@@ -1,6 +1,5 @@
 ---
-import { buildPath } from '../../utils/navigation.ts';
-import NavLink from './NavLink.astro';
+import { buildPath } from '@utils/navigation';
 import ThemeSelector from './ThemeSelector.astro';
 
 const navLinks = [
@@ -18,7 +17,11 @@ const navLinks = [
             class='flex w-fit justify-center rounded-3xl bg-base-100/95 p-2 gap-1 shadow-lg'>
             {
                 navLinks.map((link) => (
-                    <NavLink text={link.name} href={link.href} />
+                    <a
+                        class='btn btn-ghost btn-sm rounded-3xl hover:text-primary'
+                        href={link.href}>
+                        {link.name}
+                    </a>
                 ))
             }
         </div>

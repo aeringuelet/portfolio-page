@@ -1,0 +1,21 @@
+---
+import { buildPath } from '@utils/navigation';
+---
+
+<div class='navbar sticky top-4 z-50 bg-transparent'>
+    <div class='flex w-full justify-center'>
+        <div
+            class='flex w-fit justify-center rounded-3xl bg-base-100/95 p-2 gap-1 shadow-lg'>
+            <a
+                class='btn btn-ghost btn-sm rounded-3xl hover:text-primary'
+                href={buildPath('/')}>
+                Go back to Portfolio
+            </a>
+            <a
+                class='btn btn-ghost btn-sm rounded-3xl hover:text-primary'
+                href={buildPath('/blog')}>
+                All Posts
+            </a>
+        </div>
+    </div>
+</div>
