@@ -43,24 +43,32 @@ const contactMethods: {
     class='bg-base-100'>
     <div class='grid grid-cols-3 gap-4 mb-4'>
         {
-            contactMethods.map((method) => (
-                <Card
-                    title={method.label}
-                    class='bg-base-300'
-                    icon={method.icon}
-                    content='center'>
-                    {method.type === 'plain' ? (
+            contactMethods.map((method) => {
+                return method.type === 'plain' ? (
+                    <Card
+                        title={method.label}
+                        class='bg-base-300'
+                        icon={method.icon}
+                        content='center'>
                         <p class='text-center'>{method.value}</p>
-                    ) : (
-                        <Link
-                            value={method.value}
-                            type={method.type}
-                            label={method.linkLabel}
-                            class='link-hover'
-                        />
-                    )}
-                </Card>
-            ))
+                    </Card>
+                ) : (
+                    <Link
+                        value={method.value}
+                        type={method.type}
+                        label={method.linkLabel}>
+                        <Card
+                            title={method.label}
+                            class='bg-base-300 hover:shadow-[0_0_1rem] transition-shadow duration-300'
+                            icon={method.icon}
+                            content='center'>
+                            <p class='text-center'>
+                                {method.linkLabel || method.value}
+                            </p>
+                        </Card>
+                    </Link>
+                );
+            })
         }
     </div>
     <Card

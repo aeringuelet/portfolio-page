@@ -8,24 +8,39 @@ interface Props {
     class?: string;
 }
 const { label, value, type, class: className } = Astro.props;
+
+const finalValue = label || value;
+
+const html = await Astro.slots.render('default');
+
+const classes = html ? '' : `link ${className || ''}`;
 ---
 
 {
-    type === 'email' ? (
-        <a href={`mailto:${value}`} class={`link ${className}`}>
-            {label || value}
-        </a>
-    ) : type === 'phone' ? (
-        <a href={`tel:${value}`} class={`link ${className}`}>
-            {label || value}
-        </a>
-    ) : (
-        <a
-            href={value}
-            class={`link ${className}`}
-            target='_blank'
-            rel='noopener noreferrer'>
-            {label || value}
-        </a>
-    )
+    (() => {
+        switch (type) {
+            case 'email':
+                return (
+                    <a href={`mailto:${value}`} class={classes}>
+                        {html ? <Fragment set:html={html} /> : finalValue}
+                    </a>
+                );
+            case 'phone':
+                return (
+                    <a href={`tel:${value}`} class={classes}>
+                        {html ? <Fragment set:html={html} /> : finalValue}
+                    </a>
+                );
+            default:
+                return (
+                    <a
+                        href={value}
+                        class={classes}
+                        target='_blank'
+                        rel='noopener noreferrer'>
+                        {html ? <Fragment set:html={html} /> : finalValue}
+                    </a>
+                );
+        }
+    })()
 }
