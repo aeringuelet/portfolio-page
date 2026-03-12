@@ -1,17 +1,12 @@
 ---
 import Button from '@components/Button.astro';
-import Icon from '@components/Icon.astro';
 import { buildPath } from '@utils/navigation';
 ---
 
-<div class='navbar sticky top-0 z-50 bg-transparent'>
+<div class='navbar sticky top-0 z-50 bg-base-200 border-b-2 border-base-100'>
     <div class='flex w-full'>
         <div class='flex w-full gap-2 items-center justify-between px-16'>
-            <Button
-                type='link'
-                class='btn-sm btn-accent btn-soft'
-                href={buildPath('/')}>
-                <Icon name='briefcase' class='text-lg' />
+            <Button type='link' class='btn-neutral' href={buildPath('/')}>
                 Portfolio
             </Button>
             <Button
