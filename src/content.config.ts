@@ -13,6 +13,7 @@ const blog = defineCollection({
 		creationDate: z.coerce.date(),
 		updatedDate: z.coerce.date().optional(),
 		tags: z.array(z.string()).optional(),
+		pinned: z.boolean().default(false),
 	}),
 })
 

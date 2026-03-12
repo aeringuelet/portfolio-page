@@ -1,7 +1,7 @@
 ---
 import Badge from '@components/Badge.astro';
 import Icon from '@components/Icon.astro';
-import { buildPath, type Collection } from '../../utils';
+import { buildPath, type Collection, formatDate } from '@utils/index';
 
 interface Props {
     post: Collection<'blog'>;
@@ -9,14 +9,14 @@ interface Props {
 const { post } = Astro.props;
 ---
 
-<a href={buildPath(`/blog/${post.id}`)}>
+<a href={buildPath(`/blog/${post.id}`)} class='w-full'>
     <div
         class='card shadow-2xl bg-base-100 border border-transparent group hover:border-primary transition-all duration-200'>
         <div class='card-body p-4 text-left'>
             <div class='flex items-center gap-1'>
                 <Icon name='calendar-date-range' />
                 <p class='text-xs'>
-                    {post.data.creationDate.toLocaleDateString()}
+                    {formatDate(post.data.creationDate)}
                 </p>
             </div>
             <h2 class='card-title group-hover:text-primary text-white'>
