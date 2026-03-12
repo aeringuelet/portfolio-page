@@ -1,71 +1,89 @@
 ---
 import Icon from '@components/Icon.astro';
 import Section from '@components/Section.astro';
+import { formatShortDate } from '@utils/date';
 
 const experiences: {
     title: string;
     company: string;
     dates: {
         start: Date;
-        end: Date | 'Present';
+        end?: Date;
     };
     description: string;
 }[] = [
     {
         title: 'Full Stack Developer',
-        company: 'Ensolvers',
+        company: 'FlexAI',
         dates: {
-            start: new Date('2017-01-01'),
-            end: new Date('2019-12-12')
+            start: new Date('2025-05-01'),
+        },
+        description: "AI workload as a service -WaaS- infrastructure company offering CLI and GUI tools for AI workloads (inferences, fine tunings, trainings) helping optimize them effortlessly."
+    },
+    {
+        title: 'Backend Developer',
+        company: 'Dharma',
+        dates: {
+            start: new Date('2023-11-01'),
+            end: new Date('2024-11-01'),
+        },
+        description: "Tourism platform offering curated trips by influencers and travel experts to provide exceptional travel experiences to guests. The tech team was in charge of building the systems that support the organization processes."
+    },
+    {
+        title: 'Full Stack Developer',
+        company: 'Trovatrip',
+        dates: {
+            start: new Date('2021-03-01'),
+            end: new Date('2023-06-01')
         },
         description:
-            'Developing user interfaces and experiences using modern frontend technologies.'
+            'Platform and marketplace that brings together different travel-industry roles (operators, hosts, travelers) that allows them to interact to organize trips, create itineraries, manage trips, etc.'
     },
     {
         title: 'Full Stack Developer',
         company: 'Flux IT',
         dates: {
             start: new Date('2020-01-01'),
-            end: new Date('2022-12-12')
+            end: new Date('2021-02-01')
         },
         description:
-            'Developing user interfaces and experiences using modern frontend technologies.'
+            "Consultancy company where I started my formation in the JS fullstack environment (NodeJS, ReactJS). I worked in different projects including Trovatrip's app mentioned above."
     },
     {
         title: 'Full Stack Developer',
-        company: 'Trovatrip',
+        company: 'Ensolvers',
         dates: {
-            start: new Date('2023-01-01'),
-            end: new Date('2024-06-01')
-        },
+            start: new Date('2018-01-01'),
+            end: new Date('2019-12-31')
+        }, 
         description:
-            'Developing user interfaces and experiences using modern frontend technologies.'
-    }
+            'Developed emailing and marketing tools to provide all kind of customers the capabilities to improve their email campaigns, inboxing and therefore achieve smart investments and customer segmentation via tracking methods.'
+    },
 ];
 ---
 <Section sectionName='experience' title='Experience' subtitle='My professional journey' class='bg-accent-content/20'>
     <div class='flex flex-col items-center gap-8'>
         {
             experiences.map((experience, index) => (
-                <div class='card bg-base-100 shadow-lg '>
+                <div class='card bg-base-100 shadow-lg max-w-1/2'>
                     <div class='card-body'>
                         <div class='flex flex-row gap-4 items-start'>
                             <div class='badge-soft badge-accent w-fit rounded-md p-2'>
-                                <Icon name='calendar-date-range' class='text-2xl' />
+                                <Icon name='calendar-date-range' class='text-3xl' />
                             </div>
                             <div class='flex flex-col gap-1'>
                                 <time class='text-xs font-semibold text-accent'>
-                                    {experience.dates.start.toLocaleDateString()} -{' '}
-                                    {experience.dates.end === 'Present'
-                                        ? 'Present'
-                                        : experience.dates.end.toLocaleDateString()}
+                                    {formatShortDate(experience.dates.start)} -{' '}
+                                    {experience.dates.end
+                                        ? formatShortDate(experience.dates.end)
+                                        : 'Present'}
                                 </time>
-                                <h2 class='card-title'>{experience.title}</h2>
-                                <p class='italic'>{experience.company}</p>
+                                <p class='card-title'>{experience.company}</p>
+                                <h2 class='italic'>{experience.title}</h2>
                             </div>
                         </div>
                         <div>
-                            <p class=''>{experience.description}</p>
+                            <p>{experience.description}</p>
                         </div>
                     </div>
                 </div>
