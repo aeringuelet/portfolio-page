@@ -24,14 +24,14 @@ const allPosts = [...pinnedPosts, ...posts];
 
 <BaseLayout pageTitle='Blog' class='flex flex-col w-full items-center'>
     <BlogNavbar />
-    <div class='flex flex-col gap-12 mt-12 max-w-[75%] text-center mb-16'>
+    <div class='flex flex-col gap-12 mt-12 lg:max-w-3/4 max-w-[90%] text-center mb-16'>
         <div>
             <Title>My Blog</Title>
             <h4 class='italic'>A collection of my thoughts.</h4>
         </div>
         {
             allPosts.length > 0 ? (
-                <div class='grid grid-cols-1 w-full gap-4'>
+                <div class='grid grid-cols-1 w-full gap-4 justify-center'>
                     {allPosts
                         .sort(
                             (a, b) =>

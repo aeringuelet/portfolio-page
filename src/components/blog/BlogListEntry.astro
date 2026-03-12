@@ -11,38 +11,40 @@ const { post } = Astro.props;
 const { pinned, creationDate, title, description, tags } = post.data;
 ---
 
-<div class='indicator w-full'>
-    {
-        pinned && (
-            <Badge class='indicator-item indicator-start badge-primary badge-xs' />
-        )
-    }
-    <a href={buildPath(`/blog/${post.id}`)} class='w-full'>
-        <div
-            class='card shadow-2xl bg-base-100 border border-transparent group hover:border-primary transition-all duration-200'>
-            <div class='card-body p-4 text-left gap-0'>
-                <div class='flex items-center gap-1 pb-1'>
-                    <Icon name='calendar-date-range' />
-                    <p class='text-xs italic'>
-                        {formatLongDate(creationDate)}
-                    </p>
+<div class='justify-center w-full'>
+    <div class='indicator lg:max-w-4/6 w-full'>
+        {
+            pinned && (
+                <Badge class='indicator-item indicator-start badge-primary badge-xs' />
+            )
+        }
+        <a href={buildPath(`/blog/${post.id}`)} class='w-full'>
+            <div
+                class='card shadow-2xl bg-base-100 border border-transparent group hover:border-primary transition-all duration-200'>
+                <div class='card-body p-4 text-left gap-0'>
+                    <div class='flex items-center gap-1 pb-1'>
+                        <Icon name='calendar-date-range' />
+                        <p class='text-xs italic'>
+                            {formatLongDate(creationDate)}
+                        </p>
+                    </div>
+                    <h2 class='card-title group-hover:text-primary text-white'>
+                        {title}
+                    </h2>
+                    <p class='line-clamp-4 mb-3'>{description}</p>
+                    {
+                        tags && tags.length > 0 && (
+                            <div class='card-actions'>
+                                {tags.map((tag) => (
+                                    <Badge class='badge-outline badge-soft badge-primary badge-sm'>
+                                        {tag}
+                                    </Badge>
+                                ))}
+                            </div>
+                        )
+                    }
                 </div>
-                <h2 class='card-title group-hover:text-primary text-white'>
-                    {title}
-                </h2>
-                <p class='line-clamp-4 pb-3'>{description}</p>
-                {
-                    tags && tags.length > 0 && (
-                        <div class='card-actions'>
-                            {tags.map((tag) => (
-                                <Badge class='badge-outline badge-soft badge-primary badge-sm'>
-                                    {tag}
-                                </Badge>
-                            ))}
-                        </div>
-                    )
-                }
             </div>
-        </div>
-    </a>
+        </a>
+    </div>
 </div>
