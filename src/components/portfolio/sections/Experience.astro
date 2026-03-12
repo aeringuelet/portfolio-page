@@ -78,8 +78,10 @@ const experiences: {
                                         ? formatShortDate(experience.dates.end)
                                         : 'Present'}
                                 </time>
-                                <p class='card-title'>{experience.company}</p>
-                                <h2 class='italic'>{experience.title}</h2>
+                                <div class="flex gap-2 items-center">
+                                    <p class='card-title'>{experience.company}</p>
+                                    <h2 class='italic'>{experience.title}</h2>
+                                </div>
                             </div>
                         </div>
                         <div>
