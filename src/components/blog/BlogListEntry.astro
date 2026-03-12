@@ -1,7 +1,7 @@
 ---
 import Badge from '@components/Badge.astro';
 import Icon from '@components/Icon.astro';
-import { buildPath, type Collection, formatDate } from '@utils/index';
+import { buildPath, type Collection, formatLongDate } from '@utils/index';
 
 interface Props {
     post: Collection<'blog'>;
@@ -24,7 +24,7 @@ const { pinned, creationDate, title, description, tags } = post.data;
                 <div class='flex items-center gap-1 pb-1'>
                     <Icon name='calendar-date-range' />
                     <p class='text-xs italic'>
-                        {formatDate(creationDate)}
+                        {formatLongDate(creationDate)}
                     </p>
                 </div>
                 <h2 class='card-title group-hover:text-primary text-white'>

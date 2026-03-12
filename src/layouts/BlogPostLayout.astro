@@ -4,7 +4,7 @@ import BlogNavbar from '@components/blog/navigation/BlogNavbar.astro';
 import Button from '@components/Button.astro';
 import Footer from '@components/Footer.astro';
 import Icon from '@components/Icon.astro';
-import { formatDate } from '@utils/date';
+import { formatLongDate } from '@utils/date';
 import { buildPath } from '@utils/navigation';
 import BaseLayout from './BaseLayout.astro';
 
@@ -17,7 +17,7 @@ interface Props {
 }
 const { title, date, description, tags } = Astro.props;
 
-const formattedDate = formatDate(new Date(date));
+const formattedDate = formatLongDate(new Date(date));
 ---
 
 <BaseLayout pageTitle={title}>
