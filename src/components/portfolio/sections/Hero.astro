@@ -1,26 +1,43 @@
 ---
 import Button from '@components/Button.astro';
 import Icon from '@components/Icon.astro';
+import { buildPath } from '@utils/navigation';
 ---
 
-<div class='flex flex-col w-full gap-8 h-screen bg-base-300 mt-24'>
+<div class='flex flex-col w-full gap-8 h-screen bg-base-300 mt-12'>
     <div class='avatar avatar-placeholder justify-center'>
-        <div class='bg-accent/80 text-accent-content w-32 rounded-full'>
-            <span class='text-3xl'>AER</span>
+        <div class='bg-secondary/80 rounded-full'>
+            <div class='hover-3d'>
+                <figure class='max-w-64 rounded-2xl'>
+                    <img
+                        class=''
+                        src={buildPath('/my-avatar.png')}
+                        alt='3d avatar'
+                    />
+                </figure>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
         </div>
     </div>
 
     <div class='flex text-center justify-center'>
         <div class='flex flex-col items-center max-w-md gap-6'>
             <div class='badge badge-primary badge-soft badge-lg'>
-                Fullstack Software Developer
+                Fullstack Software Engineer
             </div>
             <h1 class='text-5xl font-bold text-white'>
                 Building Digital Experiences
             </h1>
             <p>
-                7+ years crafting scalable solutions with React, ChakraUI,
-                TypeScript, and Python
+                A playful way to say that I am a software engineer and to show
+                my resume in a more engaging way.
             </p>
             <Button class='btn-soft btn-secondary' href='#contact' type='link'
                 ><Icon name='chat-bubble-oval-text' />Get In Touch
