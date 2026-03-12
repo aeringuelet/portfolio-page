@@ -5,7 +5,8 @@ import Section from '@components/Section.astro';
 
 <Section sectionName='about' title='About Me' class='bg-accent-content/20'>
     <div class='flex flex-col gap-4 items-center'>
-        <div class='mockup-code bg-base-100 max-w-8/12 py-6 px-8 text-balance'>
+        <div
+            class='mockup-code bg-base-100 lg:max-w-8/12 max-w-full lg:py-6 lg:px-8 px-6 text-balance'>
             <pre
                 class='text-wrap'
                 data-prefix='$'><b>Product-oriented, AI enhanced</b> full stack software engineer with a strong belief in the importance of <b>good communication</b>.
@@ -23,7 +24,7 @@ import Section from '@components/Section.astro';
                 data-prefix='$'>A curious person who enjoys exploring and learning new things, often tinkering in personal time for fun and small challenges.
                 </pre>
         </div>
-        <div class='grid grid-cols-3 gap-4'>
+        <div class='grid lg:grid-cols-3 grid-cols-1 gap-4'>
             <Card icon='briefcase' title='Experience' class='bg-base-100'>
                 <p class='text-md'>
                     Started my career in 2017, working on a variety of

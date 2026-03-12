@@ -11,13 +11,13 @@ interface Props {
 const { sectionName, class: className, title, subtitle, ...rest } = Astro.props;
 ---
 
-<section class={`${className} px-48 py-16`} id={sectionName} {...rest}>
+<section class={`${className} lg:px-48 px-6 py-16`} id={sectionName} {...rest}>
     {
         title && (
-            <div class='flex flex-col w-full items-center mb-8'>
+            <div class='flex flex-col items-center mb-8'>
                 <Title>{title}</Title>
                 <div class='divider divider-vertical divider-primary w-18 self-center my-1 before:h-1 after:h-1' />
-                <h5>{subtitle}</h5>
+                {subtitle && <h5>{subtitle}</h5>}
             </div>
         )
     }
