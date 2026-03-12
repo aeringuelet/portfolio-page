@@ -8,15 +8,15 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const posts = await getCollection('blog', ({ data }) =>
-    import.meta.env.PROD
+    !data.pinned && import.meta.env.PROD
         ? data.status === 'published'
-        : true && data.pinned !== true
+        : true
 );
 
 const pinnedPosts = await getCollection('blog', ({ data }) =>
-    import.meta.env.PROD
+    data.pinned && import.meta.env.PROD
         ? data.status === 'published'
-        : true && data.pinned === true
+        : true
 );
 
 const allPosts = [...pinnedPosts, ...posts];
@@ -24,7 +24,8 @@ const allPosts = [...pinnedPosts, ...posts];
 
 <BaseLayout pageTitle='Blog' class='flex flex-col w-full items-center'>
     <BlogNavbar />
-    <div class='flex flex-col gap-12 mt-12 lg:max-w-3/4 max-w-[90%] text-center mb-16'>
+    <div
+        class='flex flex-col gap-12 mt-12 lg:max-w-3/4 max-w-[90%] text-center mb-16'>
         <div>
             <Title>My Blog</Title>
             <h4 class='italic'>A collection of my thoughts.</h4>
