@@ -4,15 +4,35 @@ import Section from '@components/Section.astro';
 ---
 
 <Section sectionName='about' title='About Me' class='bg-accent-content/20'>
-    <div class='flex flex-col gap-4'>
+    <div class='flex flex-col gap-4 items-center'>
+        <Card class='bg-base-100 max-w-8/12'>
+            <p class='text-md'>
+                <b>Product-oriented, AI enhanced </b> full stack software engineer
+                with a strong belief in the importance of <b
+                    >good communication</b
+                >.
+            </p>
+            <p class='text-md'>
+                I consider <b>context a really important piece of information</b
+                > to correctly solve the problems I am given to solve to independently
+                execute and decide the best course of action.
+            </p>
+            <p class='text-md'>
+                My job is to <b
+                    >solve problems, facilitate solutions and improve efficiency</b
+                > providing good and long term designs.
+            </p>
+            <p class='text-md italic'>
+                A curious person who enjoys exploring and learning new things,
+                often tinkering in personal time for fun and small challenges.
+            </p>
+        </Card>
         <div class='grid grid-cols-3 gap-4'>
-            <Card
-                icon='briefcase'
-                title='7+ Years Experience'
-                class='bg-base-100'>
+            <Card icon='briefcase' title='Experience' class='bg-base-100'>
                 <p class='text-md'>
-                    Professional software development since 2017, delivering
-                    robust solutions across various industries
+                    Started my career in 2017, working on a variety of
+                    technologies and projects, gaining valuable experience in
+                    the software development industry
                 </p>
             </Card>
             <Card
@@ -30,14 +50,5 @@ import Section from '@components/Section.astro';
                 end-to-end solutions
             </Card>
         </div>
-        <Card class='bg-base-100'>
-            <p class='text-lg'>
-                I'm a passionate fullstack software developer with over 7 years
-                of experience building scalable web applications. My journey in
-                software development began in 2017, and since then, I've worked
-                with cutting-edge technologies to deliver high-quality
-                solutions.
-            </p>
-        </Card>
     </div>
 </Section>
