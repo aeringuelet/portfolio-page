@@ -4,19 +4,23 @@ import BlogNavbar from '@components/blog/navigation/BlogNavbar.astro';
 import Card from '@components/Card.astro';
 import Footer from '@components/Footer.astro';
 import Title from '@components/Title.astro';
+import type { InferEntrySchema } from 'astro:content';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const posts = await getCollection('blog', ({ data }) =>
-    !data.pinned && import.meta.env.PROD
-        ? data.status === 'published'
-        : true
+const isPinned = (postData: InferEntrySchema<'blog'>) => postData.pinned;
+const isProd = import.meta.env.PROD;
+const isPublished = (postData: InferEntrySchema<'blog'>) =>
+    postData.status === 'published';
+
+const posts = await getCollection(
+    'blog',
+    ({ data }) => !isPinned(data) && (isProd ? isPublished(data) : true)
 );
 
-const pinnedPosts = await getCollection('blog', ({ data }) =>
-    data.pinned && import.meta.env.PROD
-        ? data.status === 'published'
-        : true
+const pinnedPosts = await getCollection(
+    'blog',
+    ({ data }) => isPinned(data) && (isProd ? isPublished(data) : true)
 );
 
 const allPosts = [...pinnedPosts, ...posts];
