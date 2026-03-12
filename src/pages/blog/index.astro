@@ -1,29 +1,23 @@
 ---
-import Badge from '@components/Badge.astro';
 import BlogListEntry from '@components/blog/BlogListEntry.astro';
 import BlogNavbar from '@components/blog/navigation/BlogNavbar.astro';
 import Card from '@components/Card.astro';
 import Footer from '@components/Footer.astro';
-import Icon from '@components/Icon.astro';
 import Title from '@components/Title.astro';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const posts = (
-    await getCollection('blog', ({ data }) =>
-        import.meta.env.PROD
-            ? data.status === 'published'
-            : true && data.pinned !== true
-    )
-).sort((a, b) => b.data.creationDate.valueOf() - a.data.creationDate.valueOf());
+const posts = await getCollection('blog', ({ data }) =>
+    import.meta.env.PROD
+        ? data.status === 'published'
+        : true && data.pinned !== true
+);
 
-const pinnedPosts = (
-    await getCollection('blog', ({ data }) =>
-        import.meta.env.PROD
-            ? data.status === 'published'
-            : true && data.pinned === true
-    )
-).sort((a, b) => b.data.creationDate.valueOf() - a.data.creationDate.valueOf());
+const pinnedPosts = await getCollection('blog', ({ data }) =>
+    import.meta.env.PROD
+        ? data.status === 'published'
+        : true && data.pinned === true
+);
 
 const allPosts = [...pinnedPosts, ...posts];
 ---
@@ -46,18 +40,9 @@ const allPosts = [...pinnedPosts, ...posts];
                                 b.data.creationDate.valueOf() -
                                 a.data.creationDate.valueOf()
                         )
-                        .map((post) =>
-                            post.data.pinned ? (
-                                <div class='indicator w-full'>
-                                    <Badge class='indicator-item indicator-start badge-primary badge-soft'>
-                                        <Icon name='sun' />
-                                    </Badge>
-                                    <BlogListEntry post={post} />
-                                </div>
-                            ) : (
-                                <BlogListEntry post={post} />
-                            )
-                        )}
+                        .map((post) => (
+                            <BlogListEntry post={post} />
+                        ))}
                 </div>
             ) : (
                 <Card
