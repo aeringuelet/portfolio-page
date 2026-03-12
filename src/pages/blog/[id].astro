@@ -9,11 +9,13 @@ import H5 from '@components/mdx/heading/H5.astro';
 import H6 from '@components/mdx/heading/H6.astro';
 import Image from '@components/mdx/Image.astro';
 import InlineCode from '@components/mdx/InlineCode.astro';
+import Italic from '@components/mdx/Italic.astro';
 import ListItem from '@components/mdx/list/ListItem.astro';
-import MDXLink from '@components/mdx/MDXLink.astro';
 import OrderedList from '@components/mdx/list/OrderedList.astro';
-import Paragraph from '@components/mdx/Paragraph.astro';
 import UnorderedList from '@components/mdx/list/UnorderedList.astro';
+import MDXLink from '@components/mdx/MDXLink.astro';
+import Paragraph from '@components/mdx/Paragraph.astro';
+import Strong from '@components/mdx/Strong.astro';
 import BlogPostLayout from '@layouts/BlogPostLayout.astro';
 import { getCollection, render } from 'astro:content';
 
@@ -44,7 +46,9 @@ const components = {
     blockquote: Blockquote,
     li: ListItem,
     ol: OrderedList,
-    ul: UnorderedList
+    ul: UnorderedList,
+    strong: Strong,
+    em: Italic
 };
 ---
 
