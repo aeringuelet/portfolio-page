@@ -21,7 +21,7 @@ const navLinks = [
                     navLinks.map((link) => (
                         <Button
                             type='link'
-                            class='btn-ghost btn-sm hover:text-primary hover:bg-transparent hover:border-transparent'
+                            class='btn-ghost lg:btn-sm btn-xs hover:text-primary hover:bg-transparent hover:border-transparent'
                             href={link.href}>
                             {link.name}
                         </Button>
@@ -30,7 +30,7 @@ const navLinks = [
             </div>
             <Button
                 type='link'
-                class='btn-sm btn-soft btn-accent shadow-lg p-5'
+                class='lg:btn-sm btn-xs btn-soft btn-accent shadow-lg lg:p-5 p-[1.15rem]'
                 href={buildPath('/blog')}>
                 Blog
             </Button>
