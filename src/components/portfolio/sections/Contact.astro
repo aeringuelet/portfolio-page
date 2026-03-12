@@ -1,8 +1,5 @@
 ---
-import Button from '@components/Button.astro';
 import Card from '@components/Card.astro';
-import DownloadCVButton from '@components/DownloadCVButton.astro';
-import Icon from '@components/Icon.astro';
 import type { LinkType } from '@components/Link.astro';
 import Link from '@components/Link.astro';
 import Section from '@components/Section.astro';
@@ -47,7 +44,7 @@ const contactMethods: {
                 return method.type === 'plain' ? (
                     <Card
                         title={method.label}
-                        class='bg-base-300'
+                        class='bg-base-300 hover:shadow-[0_0_1rem] transition-shadow duration-100'
                         icon={method.icon}
                         content='center'>
                         <p class='text-center'>{method.value}</p>
@@ -71,18 +68,4 @@ const contactMethods: {
             })
         }
     </div>
-    <Card
-        title='Do you have a project in mind or just want to say hello?'
-        class='bg-base-300'
-        content='center'>
-        <div class='flex gap-4 mt-4'>
-            <Button
-                class='btn-soft btn-secondary'
-                type='link'
-                href='mailto:aeringuelet@gmail.com'>
-                <Icon name='paper-airplane' />Send Message</Button
-            >
-            <DownloadCVButton />
-        </div>
-    </Card>
 </Section>

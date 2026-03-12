@@ -1,6 +1,5 @@
 ---
 import Button from '@components/Button.astro';
-import DownloadCVButton from '@components/DownloadCVButton.astro';
 import Icon from '@components/Icon.astro';
 ---
 
@@ -23,15 +22,9 @@ import Icon from '@components/Icon.astro';
                 7+ years crafting scalable solutions with React, ChakraUI,
                 TypeScript, and Python
             </p>
-            <div class='grid grid-cols-2 gap-4'>
-                <Button
-                    class='btn-soft btn-secondary'
-                    href='#contact'
-                    type='link'
-                    ><Icon name='chat-bubble-oval-text' />Get In Touch
-                </Button>
-                <DownloadCVButton />
-            </div>
+            <Button class='btn-soft btn-secondary' href='#contact' type='link'
+                ><Icon name='chat-bubble-oval-text' />Get In Touch
+            </Button>
         </div>
     </div>
 </div>
