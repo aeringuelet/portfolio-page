@@ -6,7 +6,7 @@ interface Props {
     class?: string;
 }
 
-const { pageTitle, class: className } = Astro.props;
+const { pageTitle, class: className = '' } = Astro.props;
 ---
 
 <!doctype html>
