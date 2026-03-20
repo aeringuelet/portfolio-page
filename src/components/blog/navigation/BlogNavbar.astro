@@ -1,22 +1,21 @@
 ---
 import Button from '@components/Button.astro';
-import Icon from '@components/Icon.astro';
 import { buildPath } from '@utils/navigation';
 ---
 
-<div class='navbar sticky top-0 z-50 bg-base-200 border-b-2 border-base-100'>
+<div
+    class='navbar sticky top-0 z-50 dark:bg-neutral bg-base-100 border-b dark:border-none border-neutral-400/50'>
     <div class='flex w-full'>
         <div class='flex w-full gap-2 items-center justify-between px-16'>
             <Button
                 type='link'
-                class='btn-neutral text-white'
+                class='btn-neutral dark:bg-accent-content text-neutral-content'
                 href={buildPath('/')}>
-                <Icon name='home' />
                 Portfolio
             </Button>
             <Button
                 type='link'
-                class='btn-sm btn-ghost '
+                class='btn-sm btn-ghost'
                 href={buildPath('/blog')}>
                 All Posts
             </Button>

@@ -26,14 +26,14 @@ const formattedDate = formatLongDate(new Date(date));
         <div class='flex flex-col gap-4'>
             <Button
                 href={buildPath('/blog')}
-                class='btn-ghost pl-0 hover:text-primary'
+                class='btn-ghost pl-0 dark:hover:text-primary dark:text-white hover:text-secondary hover:bg-transparent hover:border-transparent hover:shadow-none'
                 type='link'>← Back to Blog</Button
             >
             <div class='flex items-center gap-2'>
                 <Icon name='calendar-date-range' class='text-lg' />
                 <time class='italic text-sm'>{formattedDate}</time>
             </div>
-            <h1 class='text-5xl font-bold text-white'>
+            <h1 class='text-5xl font-bold dark:text-white'>
                 {title}
             </h1>
             {description && <p class='text-xl'>{description}</p>}
@@ -41,7 +41,7 @@ const formattedDate = formatLongDate(new Date(date));
                 tags && (
                     <div class='flex gap-2'>
                         {tags.map((tag) => (
-                            <Badge class='badge-soft badge-primary'>
+                            <Badge class='dark:badge-soft dark:badge-primary badge-secondary'>
                                 {tag}
                             </Badge>
                         ))}

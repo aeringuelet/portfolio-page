@@ -15,12 +15,12 @@ const { pinned, creationDate, title, description, tags } = post.data;
     <div class='indicator lg:w-4/6 w-full'>
         {
             pinned && (
-                <Badge class='indicator-item indicator-start badge-primary badge-xs' />
+                <Badge class='indicator-item indicator-start dark:badge-primary badge-secondary badge-xs' />
             )
         }
         <a href={buildPath(`/blog/${post.id}`)} class='w-full'>
             <div
-                class='card shadow-2xl bg-base-100 border border-transparent group hover:border-primary transition-all duration-200'>
+                class='card dark:shadow-2xl shadow-lg bg-base-100 border border-neutral-400/50 dark:border-transparent group dark:hover:border-primary hover:border-secondary transition-all duration-200'>
                 <div class='card-body p-4 text-left gap-0'>
                     <div class='flex items-center gap-1 pb-1'>
                         <Icon name='calendar-date-range' />
@@ -28,7 +28,8 @@ const { pinned, creationDate, title, description, tags } = post.data;
                             {formatLongDate(creationDate)}
                         </p>
                     </div>
-                    <h2 class='card-title group-hover:text-primary text-white'>
+                    <h2
+                        class='card-title dark:group-hover:text-primary group-hover:text-secondary text-neutral dark:text-white transition-all duration-200'>
                         {title}
                     </h2>
                     <p class='line-clamp-4 mb-3'>{description}</p>
@@ -36,7 +37,7 @@ const { pinned, creationDate, title, description, tags } = post.data;
                         tags && tags.length > 0 && (
                             <div class='card-actions'>
                                 {tags.map((tag) => (
-                                    <Badge class='badge-outline badge-soft badge-primary badge-sm'>
+                                    <Badge class='dark:badge-outline dark:badge-soft dark:badge-primary badge-secondary badge-sm'>
                                         {tag}
                                     </Badge>
                                 ))}
