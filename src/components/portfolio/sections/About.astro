@@ -3,21 +3,24 @@ import Card from '@components/Card.astro';
 import Section from '@components/Section.astro';
 ---
 
-<Section sectionName='about' title='About Me' class='bg-accent-content/20'>
+<Section
+    sectionName='about'
+    title='About Me'
+    class='dark:bg-accent-content/20 bg-base-300'>
     <div class='flex flex-col gap-4 items-center'>
         <div
-            class='mockup-code bg-base-100 lg:max-w-8/12 max-w-full lg:py-6 lg:px-8 px-6 text-balance'>
+            class='mockup-code dark:bg-base-100 lg:max-w-8/12 max-w-full lg:py-6 lg:px-8 px-6 text-balance'>
             <pre
                 class='text-wrap'
-                data-prefix='$'><b>Product-oriented, AI enhanced</b> full stack software engineer with a strong belief in the importance of <b>good communication</b>.
+                data-prefix='$'><b class="text-neutral-content">Product-oriented, AI enhanced</b> full stack software engineer with a strong belief in the importance of <b class="text-neutral-content">good communication</b>.
                     </pre>
             <pre
                 class='text-wrap'
-                data-prefix='$'>I consider <b>context a really important piece of information</b> to correctly solve the problems I am given to solve to independently execute and decide the best course of action.
+                data-prefix='$'>I consider <b class="text-neutral-content">context a really important piece of information</b> to correctly solve the problems I am given to solve to independently execute and decide the best course of action.
                 </pre>
             <pre
                 class='text-wrap'
-                data-prefix='$'>My job is to <b>solve problems, facilitate solutions and improve efficiency</b> providing good and long term designs.
+                data-prefix='$'>My job is to <b class="text-neutral-content">solve problems, facilitate solutions and improve efficiency</b> providing good and long term designs.
                 </pre>
             <pre
                 class='text-wrap italic'
@@ -36,15 +39,19 @@ import Section from '@components/Section.astro';
                 icon='academy-cap'
                 title='Strong Academic Background'
                 class='bg-base-100'>
-                Strong academic foundation in computer science, complementing
-                practical expertise
+                <p class='text-md'>
+                    Strong academic foundation in computer science,
+                    complementing practical expertise
+                </p>
             </Card>
             <Card
                 icon='code-bracket'
                 title='Fullstack Proficiency'
                 class='bg-base-100'>
-                Proficient in both frontend and backend technologies, creating
-                end-to-end solutions
+                <p class='text-md'>
+                    Proficient in both frontend and backend technologies,
+                    creating end-to-end solutions
+                </p>
             </Card>
         </div>
     </div>

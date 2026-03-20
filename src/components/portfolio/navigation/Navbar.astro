@@ -1,8 +1,7 @@
 ---
 import Button from '@components/Button.astro';
 import { buildPath } from '@utils/navigation';
-
-// import ThemeSelector from './ThemeSelector.astro';
+import ThemeSelector from './ThemeSelector.astro';
 
 const navLinks = [
     { name: 'About', href: buildPath('/#about') },
@@ -16,12 +15,12 @@ const navLinks = [
     <div class='flex w-full justify-center'>
         <div class='flex gap-4 items-center'>
             <div
-                class='flex w-fit justify-center rounded-xl bg-base-100/95 p-2 gap-1 shadow-lg'>
+                class='flex w-fit justify-center rounded-xl bg-white/95 border border-neutral/20 p-2 gap-1 shadow-lg dark:bg-base-100/95'>
                 {
                     navLinks.map((link) => (
                         <Button
                             type='link'
-                            class='btn-ghost lg:btn-sm btn-xs hover:text-primary hover:bg-transparent hover:border-transparent'
+                            class='btn-ghost lg:btn-sm btn-xs hover:text-primary hover:bg-transparent hover:border-transparent hover:shadow-none'
                             href={link.href}>
                             {link.name}
                         </Button>
@@ -30,12 +29,12 @@ const navLinks = [
             </div>
             <Button
                 type='link'
-                class='lg:btn-sm btn-xs btn-soft btn-accent shadow-lg lg:p-5 p-[1.15rem]'
+                class='lg:btn-sm btn-xs btn-accent lg:p-5 p-[1.15rem] dark:btn-soft dark:shadow-lg'
                 href={buildPath('/blog')}>
                 Blog
             </Button>
         </div>
-        <!-- <div class='divider divider-horizontal'></div> -->
-        <!-- <ThemeSelector /> -->
+        <div class='divider divider-horizontal'></div>
+        <ThemeSelector />
     </div>
 </div>

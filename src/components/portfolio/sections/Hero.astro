@@ -1,10 +1,12 @@
 ---
+import Badge from '@components/Badge.astro';
 import Button from '@components/Button.astro';
 import Icon from '@components/Icon.astro';
 import { buildPath } from '@utils/navigation';
 ---
 
-<div class='flex flex-col w-full gap-8 h-screen bg-base-300 mt-12 lg:p-0 p-6'>
+<div
+    class='flex flex-col w-full gap-8 h-screen bg-base-100 dark:bg-base-300 mt-12 lg:p-0 p-6'>
     <div class='avatar avatar-placeholder justify-center'>
         <div class='w-64'>
             <div class='hover-3d'>
@@ -29,17 +31,18 @@ import { buildPath } from '@utils/navigation';
 
     <div class='flex text-center justify-center'>
         <div class='flex flex-col items-center max-w-md gap-6'>
-            <div class='badge badge-primary badge-soft badge-lg'>
+            <Badge
+                class='badge-lg badge-primary dark:badge-primary dark:badge-soft'>
                 Fullstack Software Engineer
-            </div>
-            <h1 class='text-5xl font-bold text-white'>
+            </Badge>
+            <h1 class='text-5xl font-bold dark:text-white text-base-content'>
                 Building Digital Experiences
             </h1>
             <p>
                 A playful way to say that I am a software engineer and to show
                 my resume in a more engaging way.
             </p>
-            <Button class='btn-soft btn-secondary' href='#contact' type='link'
+            <Button class='btn-secondary' href='#contact' type='link'
                 ><Icon name='chat-bubble-oval-text' />Get In Touch
             </Button>
         </div>

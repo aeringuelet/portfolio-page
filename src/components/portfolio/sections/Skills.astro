@@ -34,7 +34,7 @@ const skills: { title: string; elements: string[] }[] = [
                 <Card title={skill.title} class='bg-base-300'>
                     <div class='flex flex-wrap gap-2'>
                         {skill.elements.map((element) => (
-                            <Badge class='badge-soft badge-accent'>
+                            <Badge class='dark:badge-soft badge-secondary dark:badge-accent'>
                                 {element}
                             </Badge>
                         ))}

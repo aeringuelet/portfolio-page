@@ -15,11 +15,12 @@ const { pageTitle, class: className = '' } = Astro.props;
         <script is:inline>
             if (localStorage.getItem('theme') === null) {
                 document.documentElement.setAttribute('data-theme', 'dim');
-            } else
+            } else {
                 document.documentElement.setAttribute(
                     'data-theme',
                     localStorage.getItem('theme')
                 );
+            }
         </script>
         <script>
             import { themeChange } from 'theme-change';
@@ -35,7 +36,7 @@ const { pageTitle, class: className = '' } = Astro.props;
         <meta name='generator' content={Astro.generator} />
         <title>{pageTitle}</title>
     </head>
-    <body class={`bg-base-300 min-h-screen ${className}`}>
+    <body class={`bg-base-100 dark:bg-base-300 min-h-screen ${className}`}>
         <slot />
     </body>
 </html>

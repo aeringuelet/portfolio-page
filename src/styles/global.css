@@ -3,7 +3,16 @@
 @import "tailwindcss";
 
 @plugin "daisyui" {
-	themes: dim --default;
+	themes:
+		bumblebee,
+		dim --prefersdark --default;
+}
+
+@plugin "daisyui/theme" {
+	name: "bumblebee";
+	default: false;
+	prefersdark: false;
+	color-scheme: light;
 }
 
 @plugin "daisyui/theme" {
@@ -12,6 +21,8 @@
 	prefersdark: true;
 	color-scheme: dark;
 }
+
+@custom-variant dark (&:where([data-theme="dim"], [data-theme="dim"] *));
 
 html {
 	scroll-behavior: smooth;
