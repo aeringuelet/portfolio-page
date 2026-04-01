@@ -17,7 +17,7 @@
 		"astro-icon": "^1.1.5",
 		"tailwindcss": "^4.2.1",
 		"theme-change": "^2.5.0",
-		"typescript": "^5.9.3"
+		"typescript": "^6.0.2"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.3.8",
